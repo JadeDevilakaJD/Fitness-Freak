@@ -3,7 +3,6 @@ package com.example.fitnessfreak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -13,30 +12,17 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-class MainActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_register)
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
-
-        val etEmail = findViewById<EditText>(R.id.etEmail)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-        val btnEmailSignIn = findViewById<Button>(R.id.btnEmailSignIn)
-        val btnGoogleSignIn = findViewById<Button>(R.id.btnGoogleSignIn)
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
-
-        // Set click listener for Email Sign-In button
-        btnEmailSignIn.setOnClickListener {
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
-            signInWithEmailPassword(email, password)
-        }
 
         // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -46,32 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Set click listener for Google Sign-In button
-        btnGoogleSignIn.setOnClickListener {
+        val btnGoogleSignUp = findViewById<Button>(R.id.btnGoogleSignUp)
+        btnGoogleSignUp.setOnClickListener {
             signInWithGoogle()
         }
-
-        // Set click listener for Register button
-        btnRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun signInWithEmailPassword(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = auth.currentUser
-                    // You can use the user's information here or navigate to another activity
-                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
     }
 
     private fun signInWithGoogle() {
@@ -102,11 +66,11 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
-                    // You can use the user's information here or navigate to another activity
-                    Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show()
+                    // Proceed with registering the user or navigating to another activity
+                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
     }
