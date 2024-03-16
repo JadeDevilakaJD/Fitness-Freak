@@ -3,6 +3,7 @@ package com.example.fitnessfreak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,6 +17,9 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var etEmail: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnEmailSignUp: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,18 @@ class RegisterActivity : AppCompatActivity() {
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
+
+        // Initialize views
+        etEmail = findViewById(R.id.etEmail)
+        etPassword = findViewById(R.id.etPassword)
+        btnEmailSignUp = findViewById(R.id.btnRegister)
+
+        // Set click listener for the email sign-up button
+        btnEmailSignUp.setOnClickListener {
+            val email = etEmail.text.toString()
+            val password = etPassword.text.toString()
+            signUpWithEmail(email, password)
+        }
 
         // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -36,6 +52,22 @@ class RegisterActivity : AppCompatActivity() {
         btnGoogleSignUp.setOnClickListener {
             signInWithGoogle()
         }
+    }
+
+    private fun signUpWithEmail(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign up success, update UI with the signed-up user's information
+                    val user = auth.currentUser
+                    // Proceed with registering the user or navigating to another activity
+                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                } else {
+                    // If sign up fails, display a message to the user.
+                    Toast.makeText(this, "Sign up failed. ${task.exception?.message}",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun signInWithGoogle() {
