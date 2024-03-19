@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "101230005212",
+    "project_id": "fitness-freak-dc9c8",
+    "storage_bucket": "fitness-freak-dc9c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101230005212:android:908c574846734e74b4dd19",
+        "android_client_info": {
+          "package_name": "com.example.fitnessfreak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmqbrzXX4K8wMvCvkprgYU78qOeww-ja0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
