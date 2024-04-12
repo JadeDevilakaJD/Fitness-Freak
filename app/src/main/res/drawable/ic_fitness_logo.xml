@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ic_fitness_logo.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+android:width="100dp"
+android:height="100dp"
+android:viewportWidth="24"
+android:viewportHeight="24">
+
+<!-- Path for the icon -->
+<path
+    android:fillColor="#FF000000"
+    android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10s10,-4.48 10,-10S17.52,2 12,2zM8.5,16.5L6,12l5,-8 2.5,4.5 6.5,-2.5L18,12l-5,8z" />
+
+<!-- Text for the logo -->
+<text
+    android:text="Fitness Freak"
+    android:textColor="#FF000000"
+    android:textSize="12dp"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="24dp"/>
+</vector>
+
+

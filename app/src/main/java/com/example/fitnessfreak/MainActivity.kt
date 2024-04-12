@@ -24,6 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            openHomeActivity()
+            return // Exit onCreate() to prevent showing the sign-in UI
+        }
+
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
@@ -64,11 +70,11 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
-                    // You can use the user's information here or navigate to another activity
-                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
+                    // Open the HomeActivity upon successful login
+                    openHomeActivity()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(this, "Authentication failed.",
+                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}",
                         Toast.LENGTH_SHORT).show()
                 }
             }
@@ -102,13 +108,19 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
-                    // You can use the user's information here or navigate to another activity
-                    Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show()
+                    // Open the HomeActivity upon successful login
+                    openHomeActivity()
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun openHomeActivity() {
+        val intent = Intent(this, HomePage::class.java)
+        startActivity(intent)
+        finish() // Finish the MainActivity to prevent going back to it when pressing the back button from the HomeActivity
     }
 
     companion object {

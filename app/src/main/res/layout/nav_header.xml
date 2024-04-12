@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/textViewHeaderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Fitness Freak"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- You can add other header views here, like an ImageView for a profile picture -->
+
+</LinearLayout>

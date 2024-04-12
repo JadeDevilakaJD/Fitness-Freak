@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#F44336</color> <!-- Header background color -->
+    <color name="secondary_color">#2196F3</color> <!-- Button background color -->
+    <color name="edit_text_bg_color">#E0E0E0</color> <!-- EditText background color -->
+    <color name="disclaimer_color">#FF0000</color> <!-- Disclaimer background color -->
+    <color name="light_gray">#F5F5F5</color>
+    <color name="dark_blue">#0D47A1</color>
+    <color name="colorPrimary">#3F51B5</color>
 </resources>

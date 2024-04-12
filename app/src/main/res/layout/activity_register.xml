@@ -3,86 +3,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".RegisterActivity">
 
-    <!-- EditText for Date of Birth -->
+    <!-- Logo and Title -->
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_fitness_logo"
+        android:contentDescription="@string/app_name" />
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Fitness Freak"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- Email EditText -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etPassword"
+        android:layout_below="@id/textViewTitle"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="46dp"
+        android:background="@drawable/edit_text_bg"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
+    <!-- Password EditText -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etDateOfBirth"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/etEmail"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="43dp"
+        android:background="@drawable/edit_text_bg"
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/etDateOfBirth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnRegister"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="45dp"
-        android:hint="Date of Birth (YYYY-MM-DD)"
-        android:inputType="date" />
-
+    <!-- Register Button -->
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnGoogleSignUp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="18dp"
-        android:text="Register" />
+        android:layout_below="@id/etPassword"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_bg"
+        android:text="Register"
+        android:textColor="@color/white" />
 
+    <!-- Sign Up with Google Button -->
     <Button
         android:id="@+id/btnGoogleSignUp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="119dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="151dp"
-        android:text="Sign Up with Google" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="304dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/etEmail"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="102dp"
-        android:text="Register User"
-        android:textAlignment="center"
-        android:textColorLink="#DD2C2C"
-        android:textSize="24sp" />
-
+        android:layout_below="@id/btnRegister"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_bg"
+        android:text="Sign Up with Google"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

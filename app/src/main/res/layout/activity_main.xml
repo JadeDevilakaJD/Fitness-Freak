@@ -3,25 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign in with Google"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_fitness_logo" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnGoogleSignIn"
+        android:layout_below="@id/logo"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="-133dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableStart="@drawable/ic_email"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
@@ -30,11 +32,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etEmail"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"/>
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableStart="@drawable/ic_password"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnEmailSignIn"
@@ -42,24 +46,40 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etPassword"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="95dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_bg"
         android:text="Sign in with Email" />
+
+    <Button
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnEmailSignIn"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_google_bg"
+        android:text="Sign in with Google" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGoogleSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Don't have an account?"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
-        android:layout_height="41dp"
-        android:layout_below="@+id/btnEmailSignIn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="137dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="160dp"
-        android:onClick="onCreateAccountClicked"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_register_bg"
         android:text="Create Account" />
-
 
 </RelativeLayout>

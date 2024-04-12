@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".HomePage">
+
+    <!-- Main content -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/textViewWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="Welcome to Fitness Freak App"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/header_bg"/>
+
+        <!-- Main Content -->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewWelcome"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_pattern"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Fitness Goals -->
+            <TextView
+                android:id="@+id/textViewFitnessGoalsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#E36262"
+                android:text="Your Fitness Goals"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Display Fitness Goals -->
+            <TextView
+                android:id="@+id/textViewFitnessGoals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#FFEB3B"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Button to set fitness goals -->
+            <Button
+                android:id="@+id/btnSetGoals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_bg"
+                android:text="Set Goals"
+                android:textColor="@color/white" />
+
+            <!-- Workout Tracker -->
+            <TextView
+                android:id="@+id/textViewWorkoutTrackerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#EA6F6F"
+                android:text="Workout Tracker"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Placeholder for Workout Tracker content -->
+            <TextView
+                android:id="@+id/textViewWorkoutTracker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#8BC34A"
+                android:text="Track your workouts here."
+                android:textColor="@color/black" />
+
+            <!-- EditText for Workout Name -->
+            <EditText
+                android:id="@+id/etWorkoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Workout Name"
+                android:inputType="text" />
+
+            <!-- EditText for Workout Duration -->
+            <EditText
+                android:id="@+id/etDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Duration (minutes)"
+                android:inputType="number" />
+
+            <!-- EditText for Calories Burned -->
+            <EditText
+                android:id="@+id/etCaloriesBurned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Calories Burned"
+                android:inputType="number" />
+
+            <!-- Button to save workout -->
+            <Button
+                android:id="@+id/btnSaveWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_bg"
+                android:text="Save Workout"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <!-- Disclaimer -->
+        <TextView
+            android:id="@+id/textViewDisclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="All the data filled by the user are estimates and provided by the user."
+            android:textColor="@color/white"
+            android:background="@drawable/disclaimer_bg"/>
+
+        <!-- Logout Button -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewDisclaimer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:background="@drawable/button_bg"/>
+
+    </RelativeLayout>
+
+    <!-- Side navigation drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
