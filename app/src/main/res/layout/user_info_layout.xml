@@ -1,44 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- user_info_layout.xml -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background_pattern">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Information"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#333333"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="24dp"/>
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTitle"
-        android:hint="Name"
+        android:hint="Enter Your Name"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        android:backgroundTint="#E0E0E0"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnSelectDateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date of Birth"
+        android:layout_below="@id/editTextName"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:background="#1976D2"
+        android:padding="12dp"
+        android:onClick="onSelectDateOfBirthClicked"/>
+
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSelectDateOfBirth"
+        android:hint="Height (cm)"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        android:backgroundTint="#E0E0E0"
+        android:padding="12dp"
         android:layout_marginTop="16dp"/>
 
     <EditText
-        android:id="@+id/editTextAge"
+        android:id="@+id/editTextWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextName"
-        android:hint="Age"
+        android:layout_below="@id/editTextHeight"
+        android:hint="Weight (kg)"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        android:backgroundTint="#E0E0E0"
+        android:padding="12dp"
         android:layout_marginTop="16dp"/>
 
     <Spinner
         android:id="@+id/spinnerGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAge"
+        android:layout_below="@id/editTextWeight"
         android:hint="Gender"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        android:backgroundTint="#E0E0E0"
+        android:padding="12dp"
         android:layout_marginTop="16dp"/>
 
     <Button
@@ -46,9 +83,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#4CAF50"
         android:layout_below="@id/spinnerGender"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:padding="16dp"
         android:layout_alignParentEnd="true"
         android:onClick="onSubmitClicked"/>
 
@@ -57,9 +97,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Skip"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF5722"
         android:layout_below="@id/spinnerGender"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
+        android:padding="16dp"
         android:layout_alignParentStart="true"
         android:onClick="onSkipClicked"/>
 

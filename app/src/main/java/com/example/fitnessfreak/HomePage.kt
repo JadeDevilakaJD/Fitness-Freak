@@ -15,10 +15,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class HomePage : AppCompatActivity(), SetGoalsDialogFragment.SetGoalsDialogListener {
+class HomePage : AppCompatActivity(), SetGoalsDialogFragment.SetGoalsDialogListener,
+    NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var etWorkoutName: EditText
     private lateinit var etDuration: EditText
@@ -63,6 +65,25 @@ class HomePage : AppCompatActivity(), SetGoalsDialogFragment.SetGoalsDialogListe
             startActivity(Intent(this, MainActivity::class.java))
             finish() // Close the current activity
         }
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_profile -> {
+                // Open Profile activity
+                startActivity(Intent(this, UserInfoActivity::class.java))
+            }
+            R.id.nav_logout -> {
+                // Logout logic
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        }
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

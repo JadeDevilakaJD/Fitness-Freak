@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Fitness Freak</string>
     <string name="default_web_client_id" translatable="false">101230005212-m6dtv1vqie1bsdrgkd8o18bcdc15c7l7.apps.googleusercontent.com</string>
-
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>
